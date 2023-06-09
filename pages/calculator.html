@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <head>
+	<meta charset="utf-8">
+    <title>Complete a Form</title>
+    <style>
+    	* {
+    		margin: 0;
+    		padding: 0;
+    	}
+		body {
+			font: 87.5% Arial, Helvetica, sans-serif;
+			width: 500px;
+		    margin: 20px auto;
+		    padding: 20px;
+		    border: 2px solid blue;
+		}
+		h1 {
+			color: blue; 
+			font-size: 140%;
+		}
+		h2 {
+			font-size: 115%;
+			padding: .5em 0;
+		}
+		label {
+			color: blue;
+			float: left;
+			width: 8em;
+			font-weight: bold;
+			text-align: left;
+		}
+		input {
+			width: 15em;
+			margin: 0 0 .5em 1em;
+		}
+		#button, #reset {
+			width: 7em;
+			background-color: silver;
+			box-shadow: 2px 2px 0 blue; }
+		#button {
+			margin-left: 9em;
+		}
+		input[type="checkbox"] {
+			width: 13px;
+		}
+	</style>
+</head>
+<title>GPA Calculation </title>
+</head>
+<body>
+
+    
+
+  <h2>GPA Calculator</h2>
+  <h3>Enter A,B,C,D, Or F</h3>
+
+
+<FORM Name="calculateMyGPA">
+ <h2>Enter Grade</h2>
+ </tr>
+ <label for="1st class">1st class:</label>
+ <input type="text" name="value1" id="class1"autofocus required><br>
+ <label for="2nd class">2nd class:</label>
+ <input type="text" name="value2" id="class2"autofocus required><br>
+ <label for="3rd class">3rd class:</label>
+ <input type="text" name="value3" id="class3"autofocus required><br>
+ <label for="4th class">4th class:</label>
+ <input type="text" name="value4" id="class4"autofocus required><br>
+ <TR ALIGN=CENTER>
+  <TD COLSPAN=3><INPUT TYPE="BUTTON" VALUE="Calculate" NAME="CalcButton" onclick="gpacalc()"></TD>
+ </TR>
+</TABLE>
+</FORM>
+
+
+<div class="footer"> </div>
+
+<script type="text/javascript">
+
+function gpacalc() {
+//Define the value grades
+  var grade = 'FDCBA'; 
+// gets input from the user
+  var userInput = [];
+  userInput.push(document.calculateMyGPA.value1.value);
+  userInput.push(document.calculateMyGPA.value2.value);
+  userInput.push(document.calculateMyGPA.value3.value);
+  userInput.push(document.calculateMyGPA.value4.value);
+
+// script to calculate GPA
+  var totalGrade = 0, gpa = 0, checkGrade;
+
+//Checkss if user input is valid and calculates GPA
+  for (var i=0; i<userInput.length; i++) {
+    checkGrade = grade.indexOf(userInput[i].toUpperCase());
+    if (checkGrade == -1) { 
+				alert("Error: Please enter 'A B C D F.'"); //user input is inavlid
+    	} 
+	else { 
+		totalGrade += checkGrade; //totalGrade = totalGrade + checkGrade
+			}
+  	}
+
+
+
+//Gives result to user
+  var gpa = totalGrade/userInput.length;
+  if(gpa >=0.0) {
+	   alert("Your GPA IS = " + gpa); 
+	} 
+ else {
+		return; 
+	}
+}
+</SCRIPT>
+
+</body>
+</html>
